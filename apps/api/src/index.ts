@@ -1,12 +1,7 @@
 import { APP_NAME } from '@figario/shared';
 import { Elysia } from 'elysia';
+import { env } from './env';
 
-const port = Number(process.env.PORT ?? 3000);
+const app = new Elysia().get('/', () => ({ name: APP_NAME })).listen(env.PORT);
 
-const app = new Elysia()
-  .get('/health', () => ({ status: 'ok', app: APP_NAME }))
-  .listen(port);
-
-console.log(
-  `API running at http://${app.server?.hostname}:${app.server?.port}`,
-);
+console.log(`${APP_NAME} API running on http://${app.server?.hostname}:${app.server?.port}`,);

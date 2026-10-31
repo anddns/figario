@@ -4,12 +4,20 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --watch src/index.ts",
-    "start": "bun src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "dev": "bun --env-file=../../.env --watch src/index.ts",
+    "start": "bun --env-file=../../.env src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "bun --bun --env-file=../../.env drizzle-kit generate",
+    "db:migrate": "bun --bun --env-file=../../.env drizzle-kit migrate",
+    "db:studio": "bun --bun --env-file=../../.env drizzle-kit studio"
   },
   "dependencies": {
     "@figario/shared": "workspace:*",
-    "elysia": "catalog:"
+    "elysia": "catalog:",
+    "drizzle-orm": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "drizzle-kit": "catalog:"
   }
 }
