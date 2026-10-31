@@ -15,7 +15,8 @@
     "@figario/shared": "workspace:*",
     "elysia": "catalog:",
     "drizzle-orm": "catalog:",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "postgres": "catalog:"
   },
   "devDependencies": {
     "drizzle-kit": "catalog:"
